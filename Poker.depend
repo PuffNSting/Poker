@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1324522868 source:c:\users\matt\desktop\c++\codeblocks\poker\main.cpp
+	"include/Card.h"
+	"include/Deck.h"
+	"include/Player.h"
+	"include/Board.h"
+	<iostream>
+	<windows.h>
+	<time.h>
+	"include/Data.h"
+
+1324532295 c:\users\matt\desktop\c++\codeblocks\poker\include\card.h
+
+1324522678 source:c:\users\matt\desktop\c++\codeblocks\poker\src\deck.cpp
+	"..\include\Deck.h"
+
+1324488761 c:\users\matt\desktop\c++\codeblocks\poker\include\deck.h
+	"..\include\Card.h"
+	<vector>
+	<iostream>
+	<windows.h>
+
+1324510675 source:c:\users\matt\desktop\c++\codeblocks\poker\src\player.cpp
+	"..\include\Player.h"
+
+1324491062 c:\users\matt\desktop\c++\codeblocks\poker\include\player.h
+	<vector>
+	<iostream>
+	"..\include\Card.h"
+	"..\include\Board.h"
+	"..\include\win_state.h"
+	<string>
+
+1324495664 source:c:\users\matt\desktop\c++\codeblocks\poker\src\board.cpp
+	"..\include\Board.h"
+
+1324495612 c:\users\matt\desktop\c++\codeblocks\poker\include\board.h
+	<vector>
+	"..\include\Card.h"
+	<iostream>
+
+1324517396 source:c:\users\matt\desktop\c++\codeblocks\poker\src\win_state.cpp
+	"..\include\win_state.h"
+
+1324510725 c:\users\matt\desktop\c++\codeblocks\poker\include\win_state.h
+	"..\include\Board.h"
+	"..\include\Player.h"
+	<vector>
+	<algorithm>
+	<iostream>
+
+1324523468 source:c:\users\matt\desktop\c++\codeblocks\poker\src\data.cpp
+	"..\include\Data.h"
+
+1324524782 c:\users\matt\desktop\c++\codeblocks\poker\include\data.h
+	"..\include\Card.h"
+	<map>
+	<vector>
+
