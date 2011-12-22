@@ -1,7 +1,11 @@
 #ifndef DATA_H
 #define DATA_H
 #include "..\include\Card.h"
-#include <map>
+#include <algorithm>
+#include <vector>
+#include <fstream>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -17,16 +21,49 @@ struct Hand {
             two = b;
             one = a;
         }
+        suited = (one.get_suite() == two.get_suite());
+    }
+    Hand(int a, int b, bool suit) {
+        if (suit) {
+            one = Card(a, 0);
+            two = Card(b, 0);
+        }
+        else {
+            one = Card(a, 0);
+            two = Card(b, 1);
+        }
     }
     Card one;
     Card two;
+    bool suited;
 
+    ostream& operator<<(ostream& output) {
+        output << one.get_value() << " " << two.get_value() << " ";
+        if (suited) {
+            output << "suited";
+        }
+        else {
+            output << "off";
+        }
+        return output;
+    }
     bool operator==(const Hand& h) const {
         return (one == h.one && two == h.two);
     }
-    bool operator<(const Hand& h) const {
-        return (two.get_value() < h.two.get_value());
+};
+
+struct out_data {
+    out_data(Hand h, int num) {
+        hand = h;
+        counter = num;
     }
+
+    bool operator< (const out_data &rhs) const {
+        return (counter > rhs.counter);
+    }
+
+    Hand hand;
+    int counter;
 };
 
 class Data
@@ -34,11 +71,14 @@ class Data
     public:
         Data();
 
-        void add(Hand);
-
+        void add(Hand, string);
+        void write_to_file();
+        void condense_data(string);
+        void flush();
     protected:
     private:
-        map<Hand, int> hands;
+        vector<out_data> condensed;
+        vector<Hand> uncondensed;
 
 };
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1324522868 source:c:\users\matt\desktop\c++\codeblocks\poker\main.cpp
+1324575148 source:c:\users\matt\desktop\c++\codeblocks\poker\main.cpp
 	"include/Card.h"
 	"include/Deck.h"
 	"include/Player.h"
@@ -39,7 +39,7 @@
 	"..\include\Card.h"
 	<iostream>
 
-1324517396 source:c:\users\matt\desktop\c++\codeblocks\poker\src\win_state.cpp
+1324530456 source:c:\users\matt\desktop\c++\codeblocks\poker\src\win_state.cpp
 	"..\include\win_state.h"
 
 1324510725 c:\users\matt\desktop\c++\codeblocks\poker\include\win_state.h
@@ -49,11 +49,14 @@
 	<algorithm>
 	<iostream>
 
-1324523468 source:c:\users\matt\desktop\c++\codeblocks\poker\src\data.cpp
+1324579751 source:c:\users\matt\desktop\c++\codeblocks\poker\src\data.cpp
 	"..\include\Data.h"
 
-1324524782 c:\users\matt\desktop\c++\codeblocks\poker\include\data.h
+1324580935 c:\users\matt\desktop\c++\codeblocks\poker\include\data.h
 	"..\include\Card.h"
-	<map>
+	<algorithm>
 	<vector>
+	<fstream>
+	<string>
+	<iostream>
 

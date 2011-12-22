@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="include\Board.h" open="1" top="0" tabpos="6">
-		<Cursor position="273" topLine="0" />
+	<File name="include\Board.h" open="1" top="0" tabpos="7">
+		<Cursor position="104" topLine="0" />
 	</File>
 	<File name="include\Card.h" open="1" top="0" tabpos="2">
-		<Cursor position="726" topLine="2" />
+		<Cursor position="472" topLine="0" />
+	</File>
+	<File name="include\Data.h" open="1" top="1" tabpos="11">
+		<Cursor position="578" topLine="11" />
 	</File>
 	<File name="include\Deck.h" open="1" top="0" tabpos="3">
-		<Cursor position="270" topLine="0" />
+		<Cursor position="318" topLine="0" />
 	</File>
-	<File name="include\Player.h" open="1" top="0" tabpos="10">
-		<Cursor position="432" topLine="0" />
+	<File name="include\Player.h" open="1" top="0" tabpos="5">
+		<Cursor position="491" topLine="0" />
 	</File>
-	<File name="include\win_state.h" open="1" top="0" tabpos="8">
-		<Cursor position="235" topLine="0" />
+	<File name="include\win_state.h" open="1" top="0" tabpos="9">
+		<Cursor position="244" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="1116" topLine="12" />
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="846" topLine="24" />
 	</File>
-	<File name="src\Board.cpp" open="1" top="0" tabpos="7">
-		<Cursor position="256" topLine="0" />
+	<File name="src\Board.cpp" open="1" top="0" tabpos="8">
+		<Cursor position="466" topLine="0" />
+	</File>
+	<File name="src\Data.cpp" open="1" top="0" tabpos="12">
+		<Cursor position="427" topLine="0" />
 	</File>
 	<File name="src\Deck.cpp" open="1" top="0" tabpos="4">
-		<Cursor position="627" topLine="0" />
+		<Cursor position="536" topLine="0" />
 	</File>
-	<File name="src\Player.cpp" open="1" top="0" tabpos="5">
-		<Cursor position="817" topLine="0" />
+	<File name="src\Player.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="652" topLine="10" />
 	</File>
-	<File name="src\win_state.cpp" open="1" top="0" tabpos="9">
-		<Cursor position="702" topLine="43" />
+	<File name="src\win_state.cpp" open="1" top="0" tabpos="10">
+		<Cursor position="3657" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

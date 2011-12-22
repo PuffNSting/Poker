@@ -29,16 +29,19 @@ int find_winning_player(Player p[], int num_players, Board b) {
 }
 int main() {
     try {
+        int num_rounds;
+        cout << "How many hands to simulate? (500k takes 1 min): ";
+        cin >> num_rounds;
         srand(time(NULL));
+        string filename = "stats.txt";
         int num_players = 2;
-        int num_rounds = 10000;
+        //int num_rounds = 100000;
         Player players[num_players];
         Deck deck;
         Board board;
+        Data stats;
         int index;
         int victor;
-
-
 
         for (int z = 0; z < num_rounds; z++) {
             deck.shuffle();
@@ -64,18 +67,15 @@ int main() {
 
             victor = find_winning_player(players, num_players, board);
 
+            stats.add(Hand(players[victor].get_hand()[0], players[victor].get_hand()[1]), filename);
 
-            /* Displays crap
-            cout << players[victor].get_hand()[0].get_value() << " " << players[victor].get_hand()[1].get_value();
-            if (players[victor].get_hand()[0].get_suite() == players[victor].get_hand()[1].get_suite()) {
-                cout << " suited - " << players[victor].win_level_to_string(players[victor].calc_win_level(board)) << endl;
+
+            if (z%1000 == 0) {
+                cout << "Hand " << z << endl;
             }
-            else {
-                cout << " off - " << players[victor].win_level_to_string(players[victor].calc_win_level(board)) << endl;
-            }*/
         }
-
-
+        stats.flush();
+        stats.condense_data(filename);
     }
     catch(...) {
         cout << "Oh dear";
