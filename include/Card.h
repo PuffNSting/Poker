@@ -7,10 +7,7 @@ class Card
 {
     public:
         Card() {};
-        Card(int v, int s) {
-            value = v;
-            suite = s;
-        }
+        Card(int v, int s) : value(v), suite(s) {}
 
         int get_value() const { return value; }
         int get_suite() const { return suite; }
@@ -21,7 +18,6 @@ class Card
             return (c.get_value() == value && c.get_suite() == suite);
         }
 
-    protected:
     private:
         int value;
         int suite;

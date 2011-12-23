@@ -1,7 +1,7 @@
 #ifndef WIN_STATE_H
 #define WIN_STATE_H
-#include "..\include\Board.h"
-#include "..\include\Player.h"
+#include "../include/Board.h"
+#include "../include/Player.h"
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -13,10 +13,13 @@ class win_state
     public:
         win_state(vector<Card>&);
 
-        int get_win_level();
-        int get_high_card();
+        int get_win_level() {
+            return win_level;
+        }
+        int get_high_card() {
+            return high_card;
+        }
 
-    protected:
     private:
         int win_level, high_card;
 };

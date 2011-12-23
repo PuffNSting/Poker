@@ -1,17 +1,19 @@
-#include "..\include\win_state.h"
+#include "../include/win_state.h"
 
 win_state::win_state(vector<Card> &cards)
 {
+    int cards_size = cards.size();
     vector<Card> holder;
+
     //Sort cards in ascending order
     sort(cards.begin(), cards.end());
 
     // High card
-    high_card = cards[cards.size()-1].get_value();
+    high_card = cards[cards_size-1].get_value();
     win_level = 0;
 
     // Pair
-    for (int i = 0; i < cards.size() - 1; i++) {
+    for (int i = 0; i < cards_size - 1; i++) {
         if (cards[i].get_value() == cards[i+1].get_value()) {
             high_card = cards[i].get_value();
             win_level = 1;
@@ -19,14 +21,14 @@ win_state::win_state(vector<Card> &cards)
     }
 
     // Two pair
-    for (int i = 0; i < cards.size() - 3; i++) {
+    for (int i = 0; i < cards_size - 3; i++) {
         if (cards[i].get_value() == cards[i+1].get_value() && cards[i+2].get_value() == cards[i+3].get_value()) {
             high_card = cards[i+2].get_value();
             win_level = 2;
         }
     }
     // Trips
-    for (int i = 0; i < cards.size() - 2; i++) {
+    for (int i = 0; i < cards_size - 2; i++) {
         if (cards[i].get_value() == cards[i+1].get_value() && cards[i].get_value() == cards[i+2].get_value()) {
             high_card = cards[i].get_value();
             win_level = 3;
@@ -35,11 +37,11 @@ win_state::win_state(vector<Card> &cards)
 
     // Straight
     bool ace_flag = false;
-    if (cards[cards.size()-1].get_value() == 12) {
+    if (cards[cards_size-1].get_value() == 12) {
         ace_flag = true;
-        cards.insert(cards.begin(), Card(0,cards[cards.size()-1].get_suite()));
+        cards.insert(cards.begin(), Card(0,cards[cards_size-1].get_suite()));
     }
-    for (int i = 0; i < cards.size() - 4; i++) {
+    for (int i = 0; i < cards_size - 4; i++) {
         if (cards[i].get_value() == cards[i+1].get_value() - 1) {
             if (cards[i+1].get_value() == cards[i+2].get_value() - 1) {
                 if (cards[i+2].get_value() == cards[i+3].get_value() - 1) {
@@ -57,7 +59,7 @@ win_state::win_state(vector<Card> &cards)
     // Flush
     int counter = 1;
     for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < cards.size(); j++) {
+        for (int j = 0; j < cards_size; j++) {
             if (cards[j].get_suite() == i) {
                 counter++;
                 if (counter >= 5) {
@@ -74,7 +76,7 @@ win_state::win_state(vector<Card> &cards)
     // Full house
 
     vector<Card> temp;
-    for (int i = 0; i < cards.size(); i++) {
+    for (int i = 0; i < cards_size; i++) {
         temp.push_back(cards[i]);
     }
 
@@ -107,7 +109,7 @@ win_state::win_state(vector<Card> &cards)
     }
 
     // Quads
-    for (int i = 0; i < cards.size() - 4; i++) {
+    for (int i = 0; i < cards_size - 4; i++) {
         if (cards[i].get_value() == cards[i+1].get_value() && cards[i].get_value() == cards[i+2].get_value() && cards[i].get_value() == cards[i+3].get_value()) {
             high_card = cards[i].get_value();
             win_level = 7;
@@ -117,10 +119,4 @@ win_state::win_state(vector<Card> &cards)
     // Add these in later... so rare that statistically won't matter if non existant
     // Straight flush
     // Royal flush
-}
-int win_state::get_high_card() {
-    return high_card;
-}
-int win_state::get_win_level() {
-    return win_level;
 }

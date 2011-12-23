@@ -1,6 +1,6 @@
 #ifndef DATA_H
 #define DATA_H
-#include "..\include\Card.h"
+#include "../include/Card.h"
 #include <algorithm>
 #include <vector>
 #include <fstream>
@@ -71,11 +71,10 @@ class Data
     public:
         Data();
 
-        void add(Hand, string);
+        void add(Hand);
         void write_to_file();
         void condense_data(string);
         void flush();
-    protected:
     private:
         vector<out_data> condensed;
         vector<Hand> uncondensed;

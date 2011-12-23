@@ -1,4 +1,4 @@
-#include "..\include\Deck.h"
+#include "../include/Deck.h"
 
 Deck::Deck()
 {
@@ -9,22 +9,28 @@ Deck::Deck()
     //shuffle();
 }
 
-Deck::~Deck()
-{
-
-}
-
 void Deck::print_deck() {
     for (int i = 0; i < deck.size(); i++) {
         cout << deck[i].get_value() << " of " << deck[i].get_suite() << endl;
     }
 }
-
+/*
 Card Deck::operator[](int index) {
     return deck[index];
-}
+}*/
 
 void Deck::shuffle() {
+    // Using Fisher-Yates shuffle
+    int j; // Will hold random value
+    Card holder;
+    for (int i = deck.size(); i > 1; i--) {
+        j = rand() % i;
+        holder = deck[i];
+        deck[i] = deck[j];
+        deck[j] = holder;
+    }
+
+    /* Old shuffle
     Card holder;
     int index;
     for (int i = 0; i < 52; i++) {
@@ -34,9 +40,5 @@ void Deck::shuffle() {
             deck[x] = deck[index];
             deck[index] = holder;
         }
-    }
-}
-
-int Deck::size() {
-    return deck.size();
+    }*/
 }
