@@ -1,6 +1,6 @@
 #ifndef DECK_H
 #define DECK_H
-#include "..\include\Card.h"
+#include "../include/Card.h"
 #include <vector>
 #include <iostream>
 #include <windows.h>
@@ -11,14 +11,17 @@ class Deck
 {
     public:
         Deck();
-        ~Deck();
 
         void print_deck();
-        Card operator[](int);
         void shuffle();
-        int size();
 
-    protected:
+        Card operator[](int index) {
+            return deck[index];
+        }
+        int size() {
+            return deck.size();
+        }
+
     private:
         vector<Card> deck;
 };

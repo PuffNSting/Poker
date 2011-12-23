@@ -29,28 +29,34 @@ int find_winning_player(Player p[], int num_players, Board b) {
 }
 int main() {
     try {
+        // Declarations and what not
         int num_rounds;
-        cout << "How many hands to simulate? (500k takes 1 min): ";
-        cin >> num_rounds;
         srand(time(NULL));
         string filename = "stats.txt";
-        int num_players = 2;
-        //int num_rounds = 100000;
-        Player players[num_players];
         Deck deck;
         Board board;
         Data stats;
         int index;
         int victor;
+        int num_players;
 
+        cout << "How many hands to simulate? (500k takes 1 min): ";
+        cin >> num_rounds;
+        cout << "How many players? :";
+        cin >> num_players;
+
+        // If I had used a vector instead, I could declare it up there ^
+        Player players[num_players];
+
+        // Main game loop
         for (int z = 0; z < num_rounds; z++) {
             deck.shuffle();
             board.clear_board();
+
+            // Empties hands
             for (int i = 0; i < num_players; i++) {
                 players[i].new_hand();
             }
-
-
             // Deals cards
             index = 0;
             for (int i = 0; i < 2; i++) {
@@ -59,23 +65,23 @@ int main() {
                     index++;
                 }
             }
+            // Flop, turn, river
             int x = board.size()+index;
             for (int i = index; i < x; i++) {
                 board.add_card(deck[index]);
                 index++;
             }
 
+            // Find winner, take note of winning hand
             victor = find_winning_player(players, num_players, board);
-
-            stats.add(Hand(players[victor].get_hand()[0], players[victor].get_hand()[1]), filename);
-
+            stats.add(Hand(players[victor].get_hand()[0], players[victor].get_hand()[1]));
 
             if (z%1000 == 0) {
                 cout << "Hand " << z << endl;
             }
         }
-        stats.flush();
-        stats.condense_data(filename);
+        stats.flush(); //Outputs all winning hands to file
+        stats.condense_data(filename); // Sorts and enumerates winning hands
     }
     catch(...) {
         cout << "Oh dear";

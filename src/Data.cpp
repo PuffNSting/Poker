@@ -1,24 +1,12 @@
-#include "..\include\Data.h"
+#include "../include/Data.h"
 
 Data::Data()
 {
     //ctor
 }
 
-void Data::add(Hand input, string filename) {
+void Data::add(Hand input) {
     uncondensed.push_back(input);
-    /*
-    ofstream ost(filename.c_str(), ios::app );
-
-    ost << input.one.get_value() << " " << input.two.get_value() << " ";
-    if (input.suited) {
-        ost << "suited\n";
-    }
-    else {
-        ost << "off\n";
-    }
-
-    ost.close();*/
 }
 void Data::flush() {
     ofstream ost("stats.txt", ios::app );
