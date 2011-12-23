@@ -27,8 +27,31 @@ int find_winning_player(Player p[], int num_players, Board b) {
     }
     return index;
 }
+
+
+/*  TODO
+    Reverse the order of loops in hand checks to make sure the highest is taken
+*/
+
 int main() {
     try {
+        /*
+        // Detection testing
+        Player player;
+        Board board;
+
+        player.add_card(Card(2,2));
+        player.add_card(Card(3,1));
+
+        board.add_card(Card(3,1));
+        board.add_card(Card(3,1));
+        board.add_card(Card(3,1));
+        board.add_card(Card(5,1));
+        board.add_card(Card(6,1));
+
+        cout << player.win_level_to_string(player.calc_win_level(board)) << endl;
+        cout << player.get_high_card();*/
+
         // Declarations and what not
         int num_rounds;
         srand(time(NULL));
@@ -42,7 +65,7 @@ int main() {
 
         cout << "How many hands to simulate? (500k takes 1 min): ";
         cin >> num_rounds;
-        cout << "How many players? :";
+        cout << "How many players?: ";
         cin >> num_players;
 
         // If I had used a vector instead, I could declare it up there ^
@@ -75,9 +98,10 @@ int main() {
             // Find winner, take note of winning hand
             victor = find_winning_player(players, num_players, board);
             stats.add(Hand(players[victor].get_hand()[0], players[victor].get_hand()[1]));
+            cout << "winning hand: " << players[victor].get_hand()[0].get_value() << " " << players[victor].get_hand()[1].get_value() << endl;
 
             if (z%1000 == 0) {
-                cout << "Hand " << z << endl;
+                //cout << "Hand " << z << endl;
             }
         }
         stats.flush(); //Outputs all winning hands to file

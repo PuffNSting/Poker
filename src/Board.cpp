@@ -6,10 +6,7 @@ Board::Board()
 {
     //ctor
 }
-/*
-Card Board::operator[](int index) {
-    return board[index];
-}*/
+
 int Board::size() {
     return board_size;
 }

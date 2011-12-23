@@ -75,6 +75,7 @@ class Data
         void write_to_file();
         void condense_data(string);
         void flush();
+
     private:
         vector<out_data> condensed;
         vector<Hand> uncondensed;
